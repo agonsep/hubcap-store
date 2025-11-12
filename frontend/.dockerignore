@@ -1,0 +1,15 @@
+# Node modules shouldn't be copied (Docker will install them fresh)
+node_modules
+npm-debug.log
+yarn-error.log
+
+# Build artifacts
+dist
+build
+
+# Environment files
+.env
+
+# OS / editor junk
+.DS_Store
+*.swp
