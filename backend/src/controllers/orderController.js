@@ -2,7 +2,6 @@ import Order from '../models/Order.js';
 import Product from '../models/Product.js';
 import Stripe from 'stripe';
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 // @desc    Create new order
 // @route   POST /api/orders
@@ -61,6 +60,7 @@ export const createOrder = async (req, res) => {
 // @route   POST /api/orders/:id/payment
 // @access  Private
 export const createPaymentIntent = async (req, res) => {
+  const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
   try {
     const order = await Order.findById(req.params.id);
 
