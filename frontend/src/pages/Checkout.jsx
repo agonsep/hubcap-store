@@ -54,7 +54,6 @@ const CheckoutForm = () => {
 
       const orderResponse = await orderAPI.create(orderData);
       const order = orderResponse.data;
-
       // Create payment intent
       const paymentResponse = await orderAPI.createPaymentIntent(order._id);
       const { clientSecret } = paymentResponse.data;

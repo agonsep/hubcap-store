@@ -6,9 +6,11 @@ COPY package*.json ./
 RUN npm install
 COPY . .
 
-# Inject env var during build
 ARG VITE_API_URL
+ARG VITE_STRIPE_PUBLIC_KEY
+
 ENV VITE_API_URL=$VITE_API_URL
+ENV VITE_STRIPE_PUBLIC_KEY=$VITE_STRIPE_PUBLIC_KEY
 
 RUN npm run build
 
